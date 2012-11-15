@@ -1,0 +1,20 @@
+<h1><?php echo $this->escape($this->project->getNom()); ?></h1>
+<div id="projectInfoContainer">
+<div class="projectInfo"><span class="projectInfoLabel">Réalisation : </span><span class="projectInfoValue"><?php echo $this->escape($this->project->getType()); ?></span></div>
+<div class="projectInfo">
+	<span class="projectInfoLabel">Site internet : </span>
+	<a class="projectInfoValue" href="<?php echo $this->escape($this->project->getUrl()); ?>" onclick="window.open(this.href);return false;"><?php echo $this->escape(str_replace('http://', '', $this->project->getUrl())); ?></a>
+</div>
+</div>
+<?php if($this->project->hasPhotos()): ?>
+<div id="projectSlider">
+	<ul>
+	<?php foreach($this->project->getPhotos() as $photo): ?>
+		<li><img src="<?php echo $this->escape($photo->getThumb('680x350')); ?>" alt="<?php echo $this->escape($photo->getDescription()); ?>" title="<?php echo $this->escape($photo->getTitre()); ?>" /></li>
+	<?php endforeach; ?>
+	</ul>
+</div>
+<?php endif; ?>
+<div id="projectContent">
+	<?php echo $this->project->getTexte(); ?>
+</div>

@@ -1,0 +1,27 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Administration Torzend</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="<?php echo $this->baseUrl('css/admin/admin.css') ?>" type="text/css" media="screen, projection" />
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery-1.7.1.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->baseUrl('tiny_mce/tiny_mce.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/tiny_mce.js'); ?>"></script>
+<?php echo $this->headScript(); ?>
+</head>
+<body>
+	<?php ?>
+	<div id="headerContainer">
+		<div id="headerLogoContainer"><h1>Torzend</h1></div>
+		<div id="identity"></div>
+		<ul id="navigationContainer">
+			<li class="navigationItem"><a class="navigationLink" href="<?php echo $this->url(array('action' => 'list', 'controller' => 'project', 'module' => 'admin'), null, true); ?>">Projets</a>|</li>
+			<li class="navigationItem"><a class="navigationLink" href="<?php echo $this->url(array('action' => 'disconnect', 'controller' => 'auth', 'module' => 'admin'), null, true); ?>">Deconnexion</a>|</li>
+		</ul>
+	</div>
+	<div id="mainContainer"><?php echo $this->layout()->content; ?></div>
+	<div id="footerContainer"></div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<ul class="pageActions clearfix">
+	<li>[<a href="<?php echo $this->url(array(
+		'action' => 'list',
+		'controller' => 'project',
+		'module' => 'admin'
+	)); ?>">Retour</a>]</li>
+</ul>
+<?php if(count($this->messages)>0): ?>
+	<div class="success">
+	<?php foreach($this->messages as $message): ?>
+		<div><?php echo $message; ?></div>
+	<?php endforeach; ?>
+	</div>
+<?php endif; ?>
+<h1>Edition d'un projet</h1>
+<?php echo $this->editProjectForm; ?>
+<h1>Gestion des photos du projet</h1>
+<?php echo $this->createPhotoForm; ?>
+<?php echo $this->action('list', 'photo', 'admin', array('id' => $this->id)); ?>

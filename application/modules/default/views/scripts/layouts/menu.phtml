@@ -1,0 +1,21 @@
+<div id="menu">
+	<ul class="navigation">
+		<li><a class="menuElement" href="<?php echo $this->url(array(
+	'action' => 'index',
+	'controller' => 'index',
+	'module' => 'default'), null, true); ?>">Accueil</a></li>
+		<li><a class="menuElement" href="<?php echo $this->url(array(
+	'action' => 'list',
+	'controller' => 'project',
+	'module' => 'default'), null, true); ?>">Projets</a></li>
+		<li><a class="menuElement" href="<?php echo $this->url(array(
+	'action' => 'about',
+	'controller' => 'index',
+	'module' => 'default'), null, true); ?>">Derrière le site</a></li>
+		<li><a class="menuElement" href="<?php echo $this->url(array(
+	'action' => 'contact',
+	'controller' => 'index',
+	'module' => 'default'
+		), null, true); ?>">Contact</a></li>
+	</ul>
+</div>

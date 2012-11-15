@@ -1,0 +1,42 @@
+<h1><?php echo $this->title; ?></h1>
+<?php if($this->displayToolbar): ?>
+	<?php echo $this->partial(
+		'project/toolbar.phtml',
+		array(
+			'displayUrl' => $this->displayUrl,
+			'limitUrl' => $this->limitUrl,
+			'display' => $this->display,
+			'limit' => $this->limit,
+			'count' => $this->count,
+			'offset' => $this->offset,
+			'countProjects' => count($this->projects)
+		)
+	); ?>
+<?php endif; ?>
+<div class="listContainer">
+	<?php if(is_array($this->projects)): ?>
+		<?php if($this->displayPages): ?>
+			<?php echo $this->pages($this->pagesCount, $this->pageUrl, $this->page); ?>
+		<?php endif; ?>
+		<ul class="projectList">
+		<?php foreach($this->projects as $project): ?>
+			<li class="projectElement clearfix">
+				<a class="projectLinkThumb" href="<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet())); ?>">
+				<?php if($project->hasPhotos()): ?>
+					<img src="<?php echo $this->escape($project->getPhoto()->getThumb('200x100')); ?>" alt="<?php echo $this->escape($project->getPhoto()->getDescription()); ?>" title="<?php echo $this->escape($project->getPhoto()->getTitre()); ?>" />	
+				<?php endif; ?>
+				</a>
+				<h2 class="projectName"><a class="projectLinkName" href="<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet())); ?>"><?php echo $this->escape($project->getNom()); ?></a></h2>
+				<div class="projectTags"><?php echo $this->escape($project->getType()); ?></div>
+				<div class="projectDate"><?php echo $this->escape($project->getDate()); ?></div>
+				<p class="projectExtract"><?php echo $this->escape($project->getExtract()); ?></p>
+			</li>
+		<?php endforeach; ?>
+		</ul>
+		<?php if($this->displayPages): ?>
+			<?php echo $this->pages($this->pagesCount, $this->pageUrl, $this->page); ?>
+		<?php endif; ?>
+	<?php else: ?>
+		<p>Aucun projet</p>
+	<?php endif; ?>
+</div>

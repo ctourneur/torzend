@@ -1,0 +1,19 @@
+<h1>Projets récents</h1>
+<div class="mosaicContainer">
+<?php if(is_array($this->projects)): ?>
+	<ul class="projectList">
+	<?php foreach($this->projects as $i => $project): ?>
+		<li class="projectElement <?php echo ($i%3==1) ? 'middle' : ''; ?>">
+			<a class="projectLinkThumb" href="<?php echo $this->escape($this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet()))); ?>">
+			<?php if($project->hasPhotos()):  ?>
+				<img src="<?php echo $this->escape($project->getPhoto()->getThumb('200x100')); ?>" alt="<?php echo $this->escape($project->getPhoto()->getTitre()); ?>" title="<?php echo $this->escape($project->getPhoto()->getDescription()); ?>" />
+			<?php endif; ?>
+			</a>
+			<h2 class="projectName"><a class="projectLinkName" href="<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet())); ?>"><?php echo $this->escape($project->getNom()); ?></a></h2>
+			<span class="projectTags"><?php echo $this->escape($project->getType()); ?></span>
+			<span class="projectDate"><?php echo $this->escape($project->getDate()); ?></span>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+<?php endif; ?>
+</div>

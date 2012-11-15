@@ -1,0 +1,29 @@
+<div class="sliderContainer">
+<?php if(count($this->projects)>0): ?>
+	<div class="sliderContent">
+		<ul class="sliderSidebar">
+		<?php foreach($this->projects as $i => $project): ?>
+			<li id="sliderSidebar<?php echo $i; ?>" class="<?php if($i==0) echo 'first current '; ?>item clearfix">
+				<img src="<?php echo $project->getPhoto()->getThumb('150x75'); ?>" alt="" title="" />
+				<div class="sliderSidebarItem">
+					<h3 class="sliderSidebarItemName"><?php echo $project->getNom(); ?></h3>
+					<div><span class="sliderSidebarItemDate"><?php echo $project->getDate(); ?></span></div>
+				</div>
+			</li>
+		<?php endforeach; ?>
+		</ul>
+		<div class="slider">
+			<ul>
+			<?php foreach($this->projects as $project): ?>
+				<li onclick="window.location.href='<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet())); ?>';">
+					<h1 class="sliderName"><span><?php echo $project->getNom(); ?></span></h1>
+					<a href="<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet())); ?>">
+						<img src="<?php echo $project->getPhoto()->getThumb('650x330'); ?>" alt="<?php echo $project->getPhoto()->getTitre(); ?>" title="<?php echo $project->getPhoto()->getTitre(); ?>" />
+					</a>
+				</li>
+			<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+<?php endif; ?>
+</div>

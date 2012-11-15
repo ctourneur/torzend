@@ -1,0 +1,27 @@
+<?php if(count($this->photos)>0): ?>
+<table>
+	<thead>
+		<tr>
+			<th>ID Photo</th>
+			<th>Titre</th>
+			<th>Photo</th>
+			<th colspan="2">Actions</th>
+		</tr>
+	<?php foreach($this->photos as $i => $photo): ?>
+		<tr class="<?php echo ($i%2==0) ? 'even' : 'odd'; ?>">
+			<td><?php echo $this->escape($photo->getIdPhoto()); ?></td>
+			<td><?php echo $this->escape($photo->getTitre()); ?></td>
+			<td><a href="<?php echo $this->escape($photo->getPath()); ?>" onclick="window.open(this.href); return false;"><?php echo $this->escape($photo->getSrc()); ?></a></td>
+			<td class="action"><a href="#">editer</a></td>
+			<td class="action"><a href="<?php echo $this->url(
+				array(
+					'action' => 'delete',
+					'controller' => 'photo',
+					'module' => 'admin',
+					'id' => $this->escape($photo->getIdPhoto())
+				), null, true); ?>">supprimer</a></td>
+		</tr>
+	<?php endforeach; ?>
+	</thead>
+</table>
+<?php endif; ?>

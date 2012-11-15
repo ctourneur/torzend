@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Pollination  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100925
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<?php echo $this->headTitle(); ?>
+<link href="/css/default/default.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/templates/pollination/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/js/easySlider1.7.js"></script>
+<?php echo $this->headScript(); ?>
+</head>
+<body>
+<div id="wrapper">
+	<div id="logo">
+		<h1><a href="/">Torzend</a></h1>
+		<p>Template design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a></p>
+	</div>
+	<div id="menu">
+	<?php echo $this->navigation()->menu()->setMaxDepth(1); ?>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div id="breadcrumbs"><?php echo $this->navigation()->breadcrumbs()
+												->setSeparator('&nbsp;&raquo;&nbsp;')
+												->setMinDepth(0);
+					?></div>
+					<?php echo $this->layout()->content; ?>
+				</div>
+				<!-- end #content -->
+				<?php echo $this->render('layouts/sidebar.phtml'); ?>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<?php echo $this->render('layouts/footer.phtml'); ?>
+</body>
+</html>

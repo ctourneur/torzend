@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+a img {border:none;}
+
+/* Inputs */
+.input, .select {vertical-align:middle; font-size:11px;}
+
+/* Toolbar */
+#toolbar {margin:15px 0;}
+.toolbarElement {float:right; margin-left:20px;}
+.toolbarAmount {font-weight:bold;}
+.toolbarResults {}
+.mosaic, .mosaicSelected, .list, .listSelected {display:block; float:right; height:17px; width:23px; background:url(../../images/display_mode.jpg) no-repeat; overflow:hidden; margin:0 5px;}
+.list, .listSelected {width: 18px;}
+.mosaic {background-position: 0px -57px}
+.mosaicSelected {background-position:0px 0px;}
+.list {background-position:-32px 0px;}
+.listSelected {background-position: -32px -57px;}
+
+
+
+/* Breadcrumbs */
+#breadcrumbs {}
+#breadcrumbs .menuElement {}
+#breadcrumbs .menuElement:hover {}
+
+/* Pages */
+.pages {list-style:none; margin:5px 0px; padding:0px; clear:both;}
+.pages li {}
+.pages li.current {}
+.pages li.prev, .pages li.next {font-weight:bold;}
+
+/* Slider */
+.sliderContainer {}
+.sliderContent {width:980px;}
+.slider {width:980px; height:200px; overflow:hidden; margin:0; padding:0;}
+.slider ul {margin:0; padding:0;}
+.slider li {width:980px; height:200px; overflow:hidden; margin:0; padding:0; list-style:none;}
+
+/* Element d'une liste HTML */
+.mosaicContainer, .listContainer {overflow:hidden;}
+/* Mosaic */
+.mosaicContainer {}
+.mosaicContainer .projectList {list-style:none; margin:0; padding:0;}
+.mosaicContainer .projectElement {width:200px; height:170px; float:left;}
+.mosaicContainer .middle {}
+.mosaicContainer .projectLinkThumb {display:block; height:100px;}
+.mosaicContainer .projectThumb {}
+.mosaicContainer .projectName {}
+.mosaicContainer .projectLinkName {display:block;}
+.mosaicContainer .projectLinkName:hover {}
+.mosaicContainer .projectDate {display:block;}
+.mosaicContainer .projectTags {display:block;}
+/* List */
+.listContainer {}
+.listContainer .projectList {list-style:none; margin:0; padding:0;}
+.listContainer .projectElement {}
+.listContainer .projectLinkThumb {display:block; float:left; width:200px; height:100px;}
+.listContainer .projectName {}
+.listContainer .projectLinkName {}
+.listContainer .projectLinkName:hover {}
+.listContainer .projectDate {}
+.listContainer .projectTags {}
+.listContainer .projectExtract {}
+
+/* Project View */
+#projectSlider {width:650px; height:200px; overflow:hidden;}
+#projectSlider ul {margin:0; padding:0;}
+#projectSlider ul li {margin:0; padding:0; list-style:none; width:650px; height:200px; overflow:hidden;}
+#controls {}
+#controls li {}
+#controls li.current, #controls li:hover {}
+#controls li.current a, #controls li:hover a {}
+#controls li a {}
+#projectContent {}
+#projectContent h2 {}
+#projectContent p {text-align:justify;}
+#projectContent a, #projectContent a:visited {text-decoration:underline;}
+#projectContent a:hover {text-decoration:none;}
+
+/* Project Photos */
+#photosContainer {margin:0; padding:0;}
+#photosContainer .photoElement {list-style:none; float:left; width:200px; height:200px; margin:10px 0; border:1px solid #CCC;}
+#photosContainer .newRow {float:left;}
+#photosContainer .middle {margin-left:20px; margin-right:20px;}
+
+/* Sitemap */
+#sitemapContainer {}
+#sitemapContainer ul {}
+#sitemapContainer li {}
+
+/* Communs */
+.bold {font-weight:bold;}
+.clearfix {}
+.clearfix:after {clear: both; content: "."; display: block; height: 0; line-height: 0; visibility: hidden;}

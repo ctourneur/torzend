@@ -1,0 +1,16 @@
+<style type="text/css">
+ul#references {list-style:none;}
+ul#references li {margin:20px 0;}
+.method {font-size:1.1em;}
+.desc-short {font-size:0.9em;}
+.desc-long {margin-top:5px;}
+
+</style>
+<ul id="references">
+<?php foreach($this->references as $reference): ?>
+	<li>
+		<div><span class="method"><?php echo $reference["method"]; ?></span><span class="desc-short"><?php echo $reference["shortDesc"]; ?></span></div>
+		<div class="desc-long"><?php echo $reference["longDesc"]; ?></div>
+	</li>
+<?php endforeach; ?>
+</ul>

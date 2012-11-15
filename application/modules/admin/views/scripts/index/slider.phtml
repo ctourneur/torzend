@@ -1,0 +1,15 @@
+<div class="sliderContainer">
+	<div class="sliderContent">
+		<div class="slider">
+			<ul>
+			<?php foreach($this->photos as $photo): ?>
+				<li>
+					<a href="<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $photo->getIdProjet())); ?>">
+						<img src="<?php echo $photo->getThumb('980x200'); ?>" alt="<?php echo $photo->getTitre(); ?>" title="<?php echo $photo->getTitre(); ?>" />
+					</a>
+				</li>
+			<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+</div>

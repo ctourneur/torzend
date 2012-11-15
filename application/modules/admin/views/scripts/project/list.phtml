@@ -1,0 +1,55 @@
+<?php if(count($this->messages)>0): ?>
+	<div class="success">
+	<?php foreach($this->messages as $message): ?>
+		<div><?php echo $message; ?></div>
+	<?php endforeach; ?>
+	</div>
+<?php endif; ?>
+<?php if(is_array($this->actions)): ?>
+<ul class="pageActions clearfix">
+	<?php foreach($this->actions as $action): ?>
+		<li>[<a href="<?php echo $action['url']; ?>"><?php echo $action['label']; ?></a>]</li>
+	<?php endforeach; ?>
+</ul>
+<?php endif; ?>
+<div class="small"><span class="bold"><?php echo $this->offset+1; ?></span> - <span class="bold"><?php echo $this->offset+count($this->projects); ?></span> sur <span class="bold"><?php echo $this->count; ?></span> projet(s) trouvé(s)</div>
+<?php if(count($this->projects)>0): ?>
+<table>
+	<thead>
+		<tr>
+			<th>ID Projet</th>
+			<th>Nom</th>
+			<th>Type</th>
+			<th>Photos</th>
+			<th>Date</th>
+			<th colspan="2">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->projects as $i => $project): ?>
+		<tr class="<?php echo ($i%2==0) ? 'even' : 'odd'; ?>">
+			<td align="center"><?php echo $this->escape($project->getIdProjet()); ?></td>
+			<td><?php echo $this->escape($project->getNom()); ?></td>
+			<td><?php echo $this->escape($project->getType()); ?></td>
+			<td align="center"><?php echo $this->escape($project->getCountPhotos()); ?> photo(s)</td>
+			<td><?php echo $this->escape($project->getDate()); ?></td>
+			<td align="center"><a href="<?php echo $this->url(array(
+				'module' => 'admin',
+				'controller' => 'Project',
+				'action' => 'edit',
+				'id' => $this->escape($project->getIdProjet()) 
+			), null, true); ?>">editer</a></td>
+			<td align="center"><a href="<?php echo $this->url(array(
+				'module' => 'admin',
+				'controller' => 'Project',
+				'action' => 'delete',
+				'id' => $this->escape($project->getIdProjet())
+			), null, true); ?>">supprimer</a></td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+<?php echo $this->paginator($this->pageCount, '/admin/project/list/page/%page%', '%page%', $this->pageCurrent); ?>
+<?php else: ?>
+<p>Aucun projet</p>
+<?php endif; ?>

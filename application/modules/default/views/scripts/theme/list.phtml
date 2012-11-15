@@ -1,0 +1,8 @@
+<?php if(count($this->themes)): ?>
+<h2>Thèmes</h2>
+<ul>
+<?php foreach($this->themes as $theme): ?>
+	<li><a href="<?php echo $this->escape($this->url(array('controller' => 'theme', 'action' => 'change', 'id' => $theme->getIdTheme()))); ?>"><?php echo $this->escape($theme->getNom()); ?></a></li>
+<?php endforeach; ?>	
+</ul>
+<?php endif; ?>

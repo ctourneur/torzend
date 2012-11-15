@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+body {font-size:14px; margin:0; padding:0; font-family: Verdana;}
+
+h1, h2 {color:#000066; margin:10px 0;}
+h1 {font-size:1.6em;}
+h2 {font-size:1.3em; border-bottom:1px dashed #000066; border-top:1px dashed #000066; padding:5px 0 5px 10px; background-color:#f0f0f0;}
+
+a, a:visited {color:#666699; text-decoration:underline;}
+a:hover {text-decoration:none;}
+
+.inputText {width:200px;}
+
+table {width:100%; font-size:0.8em;}
+tr.even {background-color:#EEE;}
+tr.odd {background-color:#DEDEDE;}
+tr:hover {background-color:#acacc7;}
+th {background-color:#adade0; padding:3px 0; text-align:center;}
+td {padding:5px 10px;}
+.action {width:90px; text-align:center;}
+td.center, th.center {text-align:center;}
+
+#headerContainer {background-color:#ADADE0;}
+#headerLogoContainer {}
+#headerLogoContainer h1 {margin:0; float:right; margin-right:15px;}
+
+#mainContainer {padding:15px 10px; text-align:left; min-height: 500px;}
+
+#footerContainer {height:20px; background-color:#ADADE0; border-top:1px solid #333366; margin-top:10px;}
+
+#identity {font-size:12px;}
+
+ul#navigationContainer {margin:0 0 0 30px; padding:10px 0 5px 0; height:20px; line-height:20px;}
+li.navigationItem {display:inline;}
+a.navigationLink {text-decoration:none; color:#000066; font-size:0.9em; margin:0 10px;}
+a.navigationLink:hover {}
+
+ul#subnavigationContainer {border-bottom:1px solid #CCC; height:30px; overflow:hidden;  margin:15px 0; padding:0; font-size:0.8em;}
+li.subnavigationItem {float:left; border-top:1px solid #CCC; border-left:1px solid #CCC; border-right:1px solid #CCC; margin:0 2px; list-style: none;}
+a.subnavigationLink {display:block; padding:0 10px; background-color:#EEE; text-decoration:none; font-weight:bold; color:#000066; height:30px; line-height:30px;}
+a.subnavigationLink:hover {background-color:#DEDEDE;}
+
+.pageActions {margin:0 0 10px 0; padding:0px; list-style:none;}
+.pageActions li {display:inline; margin-right:15px;}
+.pageActions a, .pageActions a:visited {font-size:12px; color: #000066; font-size:12px;}
+.pageActions a:hover {}
+
+.formTextarea {height:100px;}
+.bold {font-weight:bold;}
+.small {font-size:0.8em;}
+.clearfix:after {clear: both; content: "."; display: block; height: 0; line-height: 0; visibility: hidden;}
+
+/* forms.css */
+label {font-weight:bold;}
+fieldset {padding:0 1.4em 1.4em 1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
+legend {font-weight:bold;font-size:1.2em;margin-top:-0.2em;margin-bottom:1em;}
+fieldset, #IE8#HACK {padding-top:1.4em;}
+legend, #IE8#HACK {margin-top:0;margin-bottom:0;}
+input[type=text], input[type=password], input[type=url], input[type=email], input.text, input.title, textarea {background-color:#fff;border:1px solid #bbb;color:#000;}
+input[type=text]:focus, input[type=password]:focus, input[type=url]:focus, input[type=email]:focus, input.text:focus, input.title:focus, textarea:focus {border-color:#666;}
+select {background-color:#fff;border-width:1px;border-style:solid;}
+input[type=text], input[type=password], input[type=url], input[type=email], input.text, input.title, textarea, select {margin:0.5em 0;}
+input.text, input.title {width:300px;padding:5px;}
+input.title {font-size:1.5em;}
+textarea {width:390px;height:100px;padding:5px;}
+form.inline {line-height:3;}
+form.inline p {margin-bottom:0;}
+.error, .alert, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}
+
+/* Paginator */
+.paginator {text-align:center; font-size:11px;}
+.paginator .prev, .paginator .next {}
+.paginator span, .paginator a {margin:0 2px; }
+.paginator span.current {font-weight:bold;}
+.paginator a {}
+
+/* Project */
+#photosContainer {}
+.photoContainer {width:300px; float:left; padding:15px; border:1px solid #CCCCCC; background-color:#EEEEEE;}
+.photoTitle {}
+.photoDescription {}
+.photoLink {margin:10px 0;}
