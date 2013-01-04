@@ -2,7 +2,9 @@
  * 
  * @param limit
  */
-function setLocation(limit) {
+function setLocation(param, value) {
+	console.log(param);
+	console.log(value);
 	var search = window.location.search;
 	var url = window.location.pathname+'?'; 
 	
@@ -17,7 +19,7 @@ function setLocation(limit) {
 		for(var i=0; i<paramsArray.length; i++)
 		{
 			var paramArray = paramsArray[i].split('=');
-			if(paramArray[0] != 'limit')
+			if(paramArray[0] != param)
 			{
 				url += paramsArray[i]+'&'; 
 			}
@@ -25,7 +27,7 @@ function setLocation(limit) {
 	}
 	
 	// Ajout de la limit
-	url += 'limit='+limit;
+	url += param+'='+value;
 
 	// Redirection
 	window.location.href = url;

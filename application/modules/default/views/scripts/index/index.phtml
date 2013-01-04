@@ -10,7 +10,7 @@
 			<?php endif; ?>
 			</a>
 			<h2 class="projectName"><a class="projectLinkName" href="<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet())); ?>"><?php echo $this->escape($project->getNom()); ?></a></h2>
-			<span class="projectTags"><?php echo $this->escape($project->getType()); ?></span>
+			<span class="projectTags"><?php echo $this->escape(Application_Model_Project::$types[$project->getType()]); ?></span>
 			<span class="projectDate"><?php echo $this->escape($project->getDate()); ?></span>
 		</li>
 	<?php endforeach; ?>

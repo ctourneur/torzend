@@ -9,7 +9,8 @@
 			'limit' => $this->limit,
 			'count' => $this->count,
 			'offset' => $this->offset,
-			'countProjects' => count($this->projects)
+			'countProjects' => count($this->projects),
+			'type' => $this->type
 		)
 	); ?>
 <?php endif; ?>
@@ -27,7 +28,7 @@
 				<?php endif; ?>
 				</a>
 				<h2 class="projectName"><a class="projectLinkName" href="<?php echo $this->url(array('action' => 'view', 'controller' => 'project', 'id' => $project->getIdProjet())); ?>"><?php echo $this->escape($project->getNom()); ?></a></h2>
-				<div class="projectTags"><?php echo $this->escape($project->getType()); ?></div>
+				<div class="projectTags"><?php echo $this->escape(Application_Model_Project::$types[$project->getType()]); ?></div>
 				<div class="projectDate"><?php echo $this->escape($project->getDate()); ?></div>
 				<p class="projectExtract"><?php echo $this->escape($project->getExtract()); ?></p>
 			</li>

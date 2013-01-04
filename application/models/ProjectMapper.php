@@ -24,7 +24,19 @@ class Application_Model_ProjectMapper
 		// Requête
 		$query = '
 		SELECT DISTINCT(p.idProjet), p.*, DATE_FORMAT(p.date, "%d/%m/%Y") as date 
-		FROM projets p
+		FROM projets p';
+		if(is_array($filters)) {
+			$count = 0;
+			foreach($filters as $name => $value)
+			{
+				$where = ($count == 0) ? 'WHERE' : 'AND';
+				$query .= "
+				$where $name = ?";
+				$bind[] = $value;
+				$count++;
+			}
+		}
+		$query .= '
 		ORDER BY p.'.$orderBy.' '.$order;
 		if($limit>0) {
 			$query .= '
@@ -92,29 +104,21 @@ class Application_Model_ProjectMapper
 		
 		// Requête
 		$query = '
-		SELECT DISTINCT(p.idProjet) FROM projets p';
+		SELECT DISTINCT(p.idProjet) FROM projets p ';
 		
 		// Filtrage des tags
 		if(count($filters)>0)
 		{
-			// From
-			foreach($filters as $i => $idTag)
-				$query .= ', projets_tags pt'.$i;
-			// Jointures
-			foreach($filters as $i => $idTag)
+			$count = 0;
+			foreach($filters as $name => $value)
 			{
-				$where = ($i==0) ? 'WHERE' : 'AND';
-				$query .= '
-				'.$where.' p.idProjet = pt'.$i.'.idProjet ';
-			}
-			// Where
-			foreach($filters as $i => $idTag)
-			{
-				$query .= '
-				AND pt'.$i.'.idTag = ?';
-				$bind[] = $idTag;
+				$where = ($count == 0) ? 'WHERE' : 'AND';
+				$query .= "$where $name = ?";
+				$bind[] = $value;
+				$count++;
 			}
 		}
+		
 		$statement = $this->_db->query($query, $bind);
 		
 		return ($statement->rowCount());

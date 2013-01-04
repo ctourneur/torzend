@@ -11,6 +11,13 @@ class Application_Model_Project
 	protected $_photos;
 	protected $_date;
 	
+	static public $types = array(
+		'default' => 'Indifférent',
+		'vitrine' => 'Site vitrine',
+		'ecommerce' => 'e-Commerce',
+		'application' => 'Application'
+	);
+	
 	// Constructeur
 	public function __construct($options=null) {
 		

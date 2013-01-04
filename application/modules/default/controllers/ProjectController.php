@@ -8,6 +8,7 @@ class Default_ProjectController extends Zend_Controller_Action
     protected $_defaultOrder = null;
     protected $_defaultDir = null;
     protected $_defaultDisplay = null;
+    protected $_defaultType = null;
 
     public function init()
     {
@@ -32,6 +33,7 @@ class Default_ProjectController extends Zend_Controller_Action
         $this->_defaultOrder = 'date';
         $this->_defaultDir = 'DESC';
         $this->_defaultDisplay = 'list';
+        $this->_defaultType = 'indifferent';
     }
 
     public function indexAction()
@@ -45,6 +47,7 @@ class Default_ProjectController extends Zend_Controller_Action
     	// Validator
     	$digitsValidator = new Zend_Validate_Digits();
     	$inArrayValidator = new Zend_Validate_InArray(array('mosaic', 'list'));
+    	$typesValidator = new Zend_Validate_InArray(array('vitrine', 'ecommerce', 'application'));
     	
     	// Mapper
     	$projectMapper = new Application_Model_ProjectMapper();
@@ -89,6 +92,18 @@ class Default_ProjectController extends Zend_Controller_Action
     		$limit = $this->_defaultLimit;
     	}
     	
+    	// Récuperation du type
+    	if($typesValidator->isValid($this->_getParam('type')))
+    	{
+    		$filters['type'] = $this->_getParam('type');
+    		$params['type'] = $this->_getParam('type');
+    		$type = $this->_getParam('type');
+    	}
+    	else
+    	{
+    		$type = $this->_defaultType;
+    	}
+    	
     	// Récuperation de l'orderBy
     	$order = $this->_defaultOrder;
     	
@@ -109,6 +124,11 @@ class Default_ProjectController extends Zend_Controller_Action
     	$pageParams = $params;
     	$pageParams['page'] = '%page%';
     	$this->view->pageUrl = urldecode('?'.http_build_query($pageParams));
+    	
+    	// URL Type
+    	$typeParams = $params;
+    	$typeParams['type'] = '%type%';
+    	$this->view->typeUrl = urldecode('?'.http_build_query($typeParams));
     	
 		// Nombre de projets total
     	$count = $projectMapper->count($filters);
@@ -148,6 +168,7 @@ class Default_ProjectController extends Zend_Controller_Action
     	$this->view->offset = $offset;
 		$this->view->displayToolbar = $this->_getParam('displayToolbar', true);
     	$this->view->displayPages = $this->_getParam('displayPages', true);
+    	$this->view->type = $type;
     	
     	// Javascript
     	$this->view->headScript()->appendFile('/js/default/project/list.js');

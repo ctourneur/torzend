@@ -13,12 +13,20 @@
 	</div>
 	<div class="toolbarElement">
 		<label>afficher</label>
-		<select class="select" onchange="setLocation(this.value);">
+		<select class="select" onchange="setLocation('limit', this.value);">
 			<option value="9" <?php if($this->limit == 9) echo 'selected="selected"'; ?>>9</option>
 			<option value="30" <?php if($this->limit == 30) echo 'selected="selected"'; ?>>30</option>
 			<option value="all" <?php if($this->limit == 'all') echo 'selected="selected"'; ?>>tous</option>
 		</select>
 		<span>projets</span>
+	</div>
+	<div class="toolbarElement">
+		<label>type</label>
+		<select class="select" onchange="setLocation('type', this.value);">
+		<?php foreach(Application_Model_Project::$types as $value => $label): ?>
+			<option value="<?php echo $value; ?>" <?php if($this->type == $value) echo 'selected="selected"'; ?>><?php echo $label; ?></option>
+		<?php endforeach; ?>
+		</select>
 	</div>
 	<span class="toolbarResults"><span class="bold"><?php echo $this->offset+1; ?></span> - <span class="bold"><?php echo $this->offset+$this->countProjects; ?></span></span>
 	<span>sur <span class="toolbarAmount"><?php echo $this->count; ?></span> projet(s) trouvé(s)</span>
